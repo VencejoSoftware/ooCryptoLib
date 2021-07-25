@@ -18,8 +18,8 @@ if not exist %delphiooLib%\ooVersion\ (
   call %delphiooLib%\ooVersion\code\get_dependencies.bat
 )
 
-if not exist %delphiooLib%\ooLibrary\ (
-  @echo "Clonning ooLibrary..."
-  git clone https://github.com/VencejoSoftware/ooLibrary.git %delphiooLib%\ooLibrary\
-  call %delphiooLib%\ooLibrary\code\get_dependencies.bat
+if not exist %delphiooLib%\ooLibrarySearch\ (
+  @echo "Clonning ooLibrarySearch..."
+  git clone https://github.com/VencejoSoftware/ooLibrarySearch.git %delphiooLib%\ooLibrarySearch\
+  call %delphiooLib%\ooLibrarySearch\code\get_dependencies.bat
 )
