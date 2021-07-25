@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{B0F0CD86-A8A9-4368-9E17-52A4B31C06F7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="CryptDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\dll\xe10\CryptLib.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CryptDemo">
+        <MSBuild Projects="CryptDemo.dproj"/>
+    </Target>
+    <Target Name="CryptDemo:Clean">
+        <MSBuild Projects="CryptDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CryptDemo:Make">
+        <MSBuild Projects="CryptDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CryptLib">
+        <MSBuild Projects="..\..\dll\xe10\CryptLib.dproj"/>
+    </Target>
+    <Target Name="CryptLib:Clean">
+        <MSBuild Projects="..\..\dll\xe10\CryptLib.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CryptLib:Make">
+        <MSBuild Projects="..\..\dll\xe10\CryptLib.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CryptDemo;CryptLib"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CryptDemo:Clean;CryptLib:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CryptDemo:Make;CryptLib:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
